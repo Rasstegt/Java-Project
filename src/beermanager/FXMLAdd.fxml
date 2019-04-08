@@ -105,12 +105,12 @@
       </GridPane>
       <AnchorPane layoutX="574.0" layoutY="81.0" prefHeight="291.0" prefWidth="269.0" style="-fx-background-color: ffffff;">
          <children>
-            <ImageView fitHeight="171.0" fitWidth="186.0" layoutX="48.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iv" fitHeight="171.0" fitWidth="186.0" layoutX="48.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/bike.png" />
                </image>
             </ImageView>
-            <Button layoutX="60.0" layoutY="212.0" mnemonicParsing="false" text="Choose an Image">
+            <Button fx:id="btnImage" layoutX="60.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnImageHandler" text="Choose an Image">
                <font>
                   <Font size="16.0" />
                </font>

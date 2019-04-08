@@ -1,5 +1,6 @@
 package beermanager;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class FXMLAddController implements Initializable {
 
@@ -44,6 +49,10 @@ public class FXMLAddController implements Initializable {
     private Button lbtnCancel;
     @FXML
     private Label lblError;
+    @FXML
+    private ImageView iv;
+    @FXML
+    private Button btnImage;
 
 
     @Override
@@ -87,10 +96,31 @@ public class FXMLAddController implements Initializable {
         try{
             mainInterface = FXMLLoader.load(getClass().getResource("MainInterface.fxml"));
         }catch(IOException e){
-            System.out.println("Error: "+e);
+            System.out.println("Error: " + e);
         }
         Scene scene = ((Node)event.getSource()).getScene();
         scene.setRoot(mainInterface);
+    }
+
+    @FXML
+    private void btnImageHandler(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        Stage stage = new Stage();
+        File file = fileChooser.showOpenDialog(stage);
+        configureFileChooser(fileChooser);
+        Image ndsa = new Image(file.toString());
+        iv.setImage(ndsa);
+        
+    }
+       
+    private static void configureFileChooser(final FileChooser fileChooser){                           
+        fileChooser.setTitle("View Pictures");
+        fileChooser.setInitialDirectory(
+            new File(System.getProperty("user.home"))); 
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
     }
     
 }

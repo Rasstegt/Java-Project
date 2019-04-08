@@ -1,5 +1,6 @@
 package beermanager;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class FXMLEditController implements Initializable {
@@ -45,6 +49,10 @@ public class FXMLEditController implements Initializable {
     Beer beer;
     
     BeerDatabase beerData = new BeerDatabase();
+    @FXML
+    private ImageView iv;
+    @FXML
+    private Button btnImage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -85,5 +93,25 @@ public class FXMLEditController implements Initializable {
     public void setMain(MainInterfaceController main){
         this.main = main;
     }
-    
+
+    @FXML
+    private void btnImageHandler(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        Stage stage = new Stage();
+        File file = fileChooser.showOpenDialog(stage);
+        configureFileChooser(fileChooser);
+        Image ndsa = new Image(file.toString());
+        iv.setImage(ndsa);
+        
+    }
+       
+    private static void configureFileChooser(final FileChooser fileChooser){                           
+        fileChooser.setTitle("View Pictures");
+        fileChooser.setInitialDirectory(
+            new File(System.getProperty("user.home"))); 
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
+    }
 }
