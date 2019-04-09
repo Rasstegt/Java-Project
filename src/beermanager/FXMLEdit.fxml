@@ -105,16 +105,17 @@
       </GridPane>
       <AnchorPane layoutX="518.0" layoutY="105.0" prefHeight="293.0" prefWidth="259.0" style="-fx-background-color: ffffff;">
          <children>
-            <ImageView fx:id="iv" fitHeight="171.0" fitWidth="135.0" layoutX="72.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/SuperDurak/superdurak/Images/back2.gif" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="iv" fitHeight="171.0" fitWidth="135.0" layoutX="72.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnImage" layoutX="69.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnImageHandler" text="Change Image">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
+            <Label fx:id="imageTtl" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="69.0" prefHeight="73.0" prefWidth="209.0" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -18,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 public class FXMLAddController implements Initializable {
 
@@ -53,6 +52,10 @@ public class FXMLAddController implements Initializable {
     private ImageView iv;
     @FXML
     private Button btnImage;
+    @FXML
+    private Label imageTtl;
+    
+    private String imageFile;
 
 
     @Override
@@ -95,7 +98,7 @@ public class FXMLAddController implements Initializable {
     private void btnCancelHandler(ActionEvent event) {
         try{
             mainInterface = FXMLLoader.load(getClass().getResource("MainInterface.fxml"));
-        }catch(IOException e){
+        }catch(IOException e) {
             System.out.println("Error: " + e);
         }
         Scene scene = ((Node)event.getSource()).getScene();
@@ -103,24 +106,21 @@ public class FXMLAddController implements Initializable {
     }
 
     @FXML
-    private void btnImageHandler(ActionEvent event) {
+    private void btnImageHandler(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
-        Stage stage = new Stage();
-        File file = fileChooser.showOpenDialog(stage);
-        configureFileChooser(fileChooser);
-        Image ndsa = new Image(file.toString());
-        iv.setImage(ndsa);
-        
-    }
-       
-    private static void configureFileChooser(final FileChooser fileChooser){                           
-        fileChooser.setTitle("View Pictures");
-        fileChooser.setInitialDirectory(
-            new File(System.getProperty("user.home"))); 
+        fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png"));
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
+        File selectedFile = fileChooser.showOpenDialog(imageTtl.getScene().getWindow());
+
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            Image image = new Image(imageFile);
+            iv.setImage(image);
+            imageTtl.setText("");
+        } else {
+            imageTtl.setText("Image file selection cancelled.");
+        }
     }
     
 }

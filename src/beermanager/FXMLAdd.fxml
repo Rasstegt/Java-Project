@@ -105,16 +105,16 @@
       </GridPane>
       <AnchorPane layoutX="574.0" layoutY="81.0" prefHeight="291.0" prefWidth="269.0" style="-fx-background-color: ffffff;">
          <children>
-            <ImageView fx:id="iv" fitHeight="171.0" fitWidth="186.0" layoutX="48.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/bike.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="iv" fitHeight="171.0" fitWidth="186.0" layoutX="48.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnImage" layoutX="60.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnImageHandler" text="Choose an Image">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
+            <Label fx:id="imageTtl" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="66.0" prefHeight="79.0" prefWidth="209.0" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>

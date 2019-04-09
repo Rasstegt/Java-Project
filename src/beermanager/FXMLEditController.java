@@ -2,6 +2,7 @@ package beermanager;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 public class FXMLEditController implements Initializable {
 
@@ -43,6 +43,7 @@ public class FXMLEditController implements Initializable {
     private Button lbtnCancel;
     @FXML
     private Label lblError;
+    private String imageFile;
 
     private MainInterfaceController main; 
     
@@ -53,6 +54,8 @@ public class FXMLEditController implements Initializable {
     private ImageView iv;
     @FXML
     private Button btnImage;
+    @FXML
+    private Label imageTtl;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,14 +98,22 @@ public class FXMLEditController implements Initializable {
     }
 
     @FXML
-    private void btnImageHandler(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        Stage stage = new Stage();
-        File file = fileChooser.showOpenDialog(stage);
-        configureFileChooser(fileChooser);
-        Image ndsa = new Image(file.toString());
-        iv.setImage(ndsa);
-        
+    private void btnImageHandler(ActionEvent event) throws MalformedURLException {
+         FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
+        File selectedFile = fileChooser.showOpenDialog
+    (imageTtl.getScene().getWindow());
+
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            Image image = new Image(imageFile);
+            iv.setImage(image);
+            imageTtl.setText("");
+        } else {
+            imageTtl.setText("Image file selection cancelled.");
+        }
     }
        
     private static void configureFileChooser(final FileChooser fileChooser){                           
