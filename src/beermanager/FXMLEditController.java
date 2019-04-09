@@ -64,7 +64,14 @@ public class FXMLEditController implements Initializable {
 
     @FXML
     private void btnConfirmHandler(ActionEvent event) throws IOException {
-        beerData.editFile(beer, tfName.getText(), Double.parseDouble(tfArate.getText()), Double.parseDouble(tfPrice.getText()), Integer.parseInt(tfRating.getText()), Integer.parseInt(tfYear.getText()) , tfMan.getText(), tfCountry.getText());
+        beerData.editFile(beer, 
+            tfName.getText(), 
+            Double.parseDouble(tfArate.getText()), 
+            Double.parseDouble(tfPrice.getText()), 
+            Integer.parseInt(tfRating.getText()), 
+            Integer.parseInt(tfYear.getText()) , 
+            tfMan.getText(), 
+            tfCountry.getText());
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainInterface.fxml"));
         Parent root = (Parent)loader.load();
@@ -102,7 +109,7 @@ public class FXMLEditController implements Initializable {
          FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog
     (imageTtl.getScene().getWindow());
 
@@ -114,15 +121,5 @@ public class FXMLEditController implements Initializable {
         } else {
             imageTtl.setText("Image file selection cancelled.");
         }
-    }
-       
-    private static void configureFileChooser(final FileChooser fileChooser){                           
-        fileChooser.setTitle("View Pictures");
-        fileChooser.setInitialDirectory(
-            new File(System.getProperty("user.home"))); 
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png"));
     }
 }

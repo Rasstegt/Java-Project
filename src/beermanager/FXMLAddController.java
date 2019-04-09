@@ -68,16 +68,21 @@ public class FXMLAddController implements Initializable {
         int rating = 0;
         if(Integer.parseInt(tfRating.getText()) > 5){
             rating = 5;
-        }else if(Integer.parseInt(tfRating.getText()) < 0){
+        } else if(Integer.parseInt(tfRating.getText()) < 0){
             rating = 0;
-        }else{
+        } else {
             rating = Integer.parseInt(tfRating.getText());
         }
         
         try{
-            beerData.createBeer(new Beer(tfName.getText(),Double.parseDouble(tfArate.getText()),Double.parseDouble(tfPrice.getText()),rating,Integer.parseInt(tfYear.getText()),tfMan.getText(),tfCountry.getText()));
+            beerData.createBeer(new Beer(tfName.getText(),
+                Double.parseDouble(tfArate.getText()),
+                Double.parseDouble(tfPrice.getText()),
+                rating,
+                Integer.parseInt(tfYear.getText()),
+                tfMan.getText(),tfCountry.getText()));
         }catch(Exception e){
-            lblError.setText("Error: "+e);
+            lblError.setText("Error: " + e);
         }
         
     }
@@ -110,7 +115,7 @@ public class FXMLAddController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(imageTtl.getScene().getWindow());
 
         if (selectedFile != null) {
