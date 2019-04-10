@@ -74,7 +74,8 @@ public class BeerDatabase {
         }
     }
     
-    public void editFile(Beer beer,String name, double alcoRate, double price, int rating, int year, String maunfacturer, String country){
+    public void editFile(Beer beer,String name, double alcoRate, double price, 
+        int rating, int year, String maunfacturer, String country){
         ObservableList<Beer> beerList = readFromFile();
         for(int i = 1; i < beerList.size(); i++){
             if(beer.getName().equals(beerList.get(i).getName())){
@@ -85,6 +86,7 @@ public class BeerDatabase {
                 beerList.get(i).setYear(year);
                 beerList.get(i).setMaunfacturer(maunfacturer);
                 beerList.get(i).setCountry(country);
+                
             }
         }
         try{

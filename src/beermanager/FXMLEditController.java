@@ -107,8 +107,8 @@ public class FXMLEditController implements Initializable {
     @FXML
     private void btnImageHandler(ActionEvent event) throws MalformedURLException {
          FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select Image File");
-        fileChooser.getExtensionFilters().addAll(
+            fileChooser.setTitle("Select Image File");
+            fileChooser.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog
     (imageTtl.getScene().getWindow());

@@ -163,7 +163,7 @@ public class MainInterfaceController implements Initializable {
     @FXML
     private void tbBeerHandler(MouseEvent event) {
         Beer beer = tbBeer.getSelectionModel().getSelectedItem();
-        lblName.setText("Name: "+beer.getName());
+        lblName.setText("Name: " + beer.getName());
         lblARate.setText("Alcohol Rate: "+String.valueOf(beer.getAlcoRate()));
         lblRating.setText("Rating "+String.valueOf(beer.getRating())+"/5");
         String price = String.valueOf(beer.getPrice());
