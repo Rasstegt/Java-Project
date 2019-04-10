@@ -59,7 +59,7 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="tfName" GridPane.columnIndex="1" />
+            <TextField fx:id="tfName" promptText="String" GridPane.columnIndex="1" />
             <Label text="Manufacturer" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="23.0" />
@@ -70,20 +70,20 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="tfMan" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="tfCountry" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfMan" promptText="String" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfCountry" promptText="String" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Year" textFill="WHITE" GridPane.rowIndex="3">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="tfYear" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfYear" promptText="Integer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Rating" textFill="WHITE" GridPane.rowIndex="4">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="tfRating" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="tfRating" promptText="Integer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Alcohol Rate" textFill="WHITE" GridPane.rowIndex="5">
                <font>
                   <Font size="23.0" />
@@ -94,8 +94,8 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="tfArate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="tfPrice" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="tfArate" promptText="Double" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tfPrice" promptText="Double" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="/5" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="23.0" />

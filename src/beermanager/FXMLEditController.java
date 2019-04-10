@@ -71,8 +71,7 @@ public class FXMLEditController implements Initializable {
             Integer.parseInt(tfRating.getText()), 
             Integer.parseInt(tfYear.getText()) , 
             tfMan.getText(), 
-            tfCountry.getText(),
-            imageFile);
+            tfCountry.getText(), imageFile);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainInterface.fxml"));
         Parent root = (Parent)loader.load();
@@ -99,6 +98,7 @@ public class FXMLEditController implements Initializable {
         tfRating.setText(String.valueOf(beer.getRating()));
         tfArate.setText(String.valueOf(beer.getAlcoRate()));
         tfYear.setText(String.valueOf(beer.getYear()));
+        iv.setImage(new Image(beer.getPath()));
     }
     
     public void setMain(MainInterfaceController main){
@@ -118,7 +118,6 @@ public class FXMLEditController implements Initializable {
             imageFile = selectedFile.toURI().toURL().toString();
             Image image = new Image(imageFile);
             iv.setImage(image);
-            beer.setImage(imageFile);
             imageTtl.setText("");
         } else {
             imageTtl.setText("Image file selection cancelled.");

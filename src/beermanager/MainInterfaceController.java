@@ -72,7 +72,7 @@ public class MainInterfaceController implements Initializable {
     @FXML
     private TableColumn<Beer, Double> tcPrice;
     @FXML
-    private ImageView ivBeer;
+    private ImageView iv;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,7 +81,6 @@ public class MainInterfaceController implements Initializable {
         tcMan.setCellValueFactory(new PropertyValueFactory<Beer,String>("maunfacturer"));
         tcCountry.setCellValueFactory(new PropertyValueFactory<Beer,String>("country"));
         tcPrice.setCellValueFactory(new PropertyValueFactory<Beer,Double>("price"));
-        
         tbBeer.setItems(beerData.readFromFile());
     }    
 
@@ -171,15 +170,14 @@ public class MainInterfaceController implements Initializable {
         String price = String.valueOf(beer.getPrice());
         if(price.length() < 4){
             lblPrice.setText("Price per Can: "+price+"0");
-        }else{
+        } else {
             lblPrice.setText("Price per Can: "+price);
         }
         
         lblYear.setText("Year: "+String.valueOf(beer.getYear()));
         lblMan.setText("Manufacturer: "+beer.getMaunfacturer());
         lblCountry.setText("Country: "+beer.getCountry());
-        Image image = new Image(beer.getImage());
-        ivBeer.setImage(image);
+        iv.setImage(new Image(beer.getPath()));
     }
     
 }
