@@ -26,7 +26,9 @@ public class BeerDatabase {
                 int year = Integer.parseInt(fields[4]);
                 String manufacturer = fields[5];
                 String country = fields[6];
+                String image = fields[7];
                 Beer beer = new Beer(name,aRate,price,rating,year,manufacturer,country);
+                beer.setImage(image);
                 beerList.add(beer);
             }
         }catch(FileNotFoundException e){
@@ -75,7 +77,7 @@ public class BeerDatabase {
     }
     
     public void editFile(Beer beer,String name, double alcoRate, double price, 
-        int rating, int year, String maunfacturer, String country){
+        int rating, int year, String maunfacturer, String country, String image){
         ObservableList<Beer> beerList = readFromFile();
         for(int i = 1; i < beerList.size(); i++){
             if(beer.getName().equals(beerList.get(i).getName())){
@@ -86,7 +88,7 @@ public class BeerDatabase {
                 beerList.get(i).setYear(year);
                 beerList.get(i).setMaunfacturer(maunfacturer);
                 beerList.get(i).setCountry(country);
-                
+                beerList.get(i).setImage(image);
             }
         }
         try{

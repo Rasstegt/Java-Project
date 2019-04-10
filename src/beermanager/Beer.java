@@ -8,6 +8,7 @@ public class Beer {
     private int year;
     private String maunfacturer;
     private String country;
+    private String image;
 
     public Beer(String name, double alcoRate, double price, int rating, int year, String maunfacturer, String country) {
         this.name = name;
@@ -76,8 +77,18 @@ public class Beer {
     }
     
     public String toCSV(){
-        return getName()+","+getAlcoRate()+","+getPrice()+","+getRating()+","+getYear()+","+getMaunfacturer()+","+getCountry();
+        return getName()+","+getAlcoRate()+","+getPrice()+","+getRating()+","
+               +getYear()+","+getMaunfacturer()+","+getCountry()+","+getImage();
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
     
 }
 

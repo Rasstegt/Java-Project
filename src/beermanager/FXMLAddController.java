@@ -109,12 +109,14 @@ public class FXMLAddController implements Initializable {
             errors.add("\nRating.. Only 0-5, sorry (Integer for Rating)");
         }
         
-                beerData.createBeer(new Beer(tfName.getText(),
+                Beer beer = new Beer(tfName.getText(),
                 Double.parseDouble(tfArate.getText()),
                 Double.parseDouble(tfPrice.getText()),
                 rating,
                 Integer.parseInt(tfYear.getText()),
-                tfMan.getText(),tfCountry.getText()));
+                tfMan.getText(),tfCountry.getText());
+                beer.setImage(imageFile);
+                beerData.createBeer(beer);
                 
         } catch(NumberFormatException e){
             

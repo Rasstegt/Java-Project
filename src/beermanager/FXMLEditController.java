@@ -71,7 +71,8 @@ public class FXMLEditController implements Initializable {
             Integer.parseInt(tfRating.getText()), 
             Integer.parseInt(tfYear.getText()) , 
             tfMan.getText(), 
-            tfCountry.getText());
+            tfCountry.getText(),
+            imageFile);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainInterface.fxml"));
         Parent root = (Parent)loader.load();
@@ -117,6 +118,7 @@ public class FXMLEditController implements Initializable {
             imageFile = selectedFile.toURI().toURL().toString();
             Image image = new Image(imageFile);
             iv.setImage(image);
+            beer.setImage(imageFile);
             imageTtl.setText("");
         } else {
             imageTtl.setText("Image file selection cancelled.");

@@ -19,6 +19,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -51,8 +53,6 @@ public class MainInterfaceController implements Initializable {
     @FXML
     private Label lblCountry;
     
-    @FXML
-    private Label lblTitle;
     
     Parent signin;
     Parent add;
@@ -71,6 +71,8 @@ public class MainInterfaceController implements Initializable {
     private TableColumn<Beer, String> tcCountry;
     @FXML
     private TableColumn<Beer, Double> tcPrice;
+    @FXML
+    private ImageView ivBeer;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -176,6 +178,8 @@ public class MainInterfaceController implements Initializable {
         lblYear.setText("Year: "+String.valueOf(beer.getYear()));
         lblMan.setText("Manufacturer: "+beer.getMaunfacturer());
         lblCountry.setText("Country: "+beer.getCountry());
+        Image image = new Image(beer.getImage());
+        ivBeer.setImage(image);
     }
     
 }

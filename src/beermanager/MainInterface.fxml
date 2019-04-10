@@ -60,7 +60,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="141.0" fitWidth="147.0" layoutX="62.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ivBeer" fitHeight="141.0" fitWidth="147.0" layoutX="62.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
             <VBox layoutX="24.0" layoutY="214.0" prefHeight="177.0" prefWidth="235.0" AnchorPane.topAnchor="214.0">
                <children>
                   <Label fx:id="lblPrice" prefHeight="20.0" prefWidth="233.0">
