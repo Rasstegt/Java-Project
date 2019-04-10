@@ -2,6 +2,7 @@ package beermanager;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -13,7 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -110,19 +113,33 @@ public class MainInterfaceController implements Initializable {
 
     @FXML
     private void btnDeleteHandler(ActionEvent event) {
-        beerData.deleteFromFile(tbBeer.getSelectionModel().getSelectedItem());
-        tbBeer.setItems(beerData.readFromFile());
+        Alert alertConfDelete = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConfDelete.setTitle("Delete Record");
+        alertConfDelete.setHeaderText("You are trying to delete a record");
+        alertConfDelete.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType>result=alertConfDelete.showAndWait();
+        if (result.get() == ButtonType.OK){
+            beerData.deleteFromFile(tbBeer.getSelectionModel().getSelectedItem());
+            tbBeer.setItems(beerData.readFromFile());
+        }
     }
 
     @FXML
     private void btnSignoutHandler(ActionEvent event) {
-        try{
-            signin = FXMLLoader.load(getClass().getResource("FXMLSignin.fxml"));
-        }catch(IOException e){
-            System.out.println("Error: "+e);
+        Alert alertConfSignOut = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConfSignOut.setTitle("Sign Out");
+        alertConfSignOut.setHeaderText("You are trying to sign out from the application");
+        alertConfSignOut.setContentText("Are you sure you want to sign out?");
+        Optional<ButtonType>result=alertConfSignOut.showAndWait();
+        if (result.get() == ButtonType.OK){
+            try{
+                signin = FXMLLoader.load(getClass().getResource("FXMLSignin.fxml"));
+            }catch(IOException e){
+                System.out.println("Error: "+e);
+            }
+            Scene scene = ((Node)event.getSource()).getScene();
+            scene.setRoot(signin);
         }
-        Scene scene = ((Node)event.getSource()).getScene();
-        scene.setRoot(signin);
     }
     
     @FXML
