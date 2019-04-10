@@ -114,7 +114,10 @@ public class FXMLAddController implements Initializable {
                 Double.parseDouble(tfPrice.getText()),
                 rating,
                 Integer.parseInt(tfYear.getText()),
-                tfMan.getText(),tfCountry.getText()));
+                tfMan.getText(),
+                tfCountry.getText(), 
+                imageFile
+                ));
                 
         } catch(NumberFormatException e){
             

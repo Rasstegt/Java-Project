@@ -26,7 +26,8 @@ public class BeerDatabase {
                 int year = Integer.parseInt(fields[4]);
                 String manufacturer = fields[5];
                 String country = fields[6];
-                Beer beer = new Beer(name,aRate,price,rating,year,manufacturer,country);
+                String path = fields[7];
+                Beer beer = new Beer(name,aRate,price,rating,year,manufacturer,country, path);
                 beerList.add(beer);
             }
         }catch(FileNotFoundException e){
@@ -39,12 +40,12 @@ public class BeerDatabase {
     public void createBeer(Beer beer){
         ObservableList<Beer> beerList = FXCollections.observableArrayList();
         beerList = readFromFile();
-        try{
+        try {
             output = new PrintWriter(file);
             beerList.add(beer);
-            for(int i = 0; i < beerList.size(); i++){
-                    output.println(beerList.get(i).toCSV());
-                }
+            for(int i = 0; i < beerList.size(); i++) {
+                output.println(beerList.get(i).toCSV());
+            }
         }catch(FileNotFoundException e){
             System.out.println("Exception: "+e);
         }finally{
@@ -75,7 +76,7 @@ public class BeerDatabase {
     }
     
     public void editFile(Beer beer,String name, double alcoRate, double price, 
-        int rating, int year, String maunfacturer, String country){
+        int rating, int year, String maunfacturer, String country, String path){
         ObservableList<Beer> beerList = readFromFile();
         for(int i = 1; i < beerList.size(); i++){
             if(beer.getName().equals(beerList.get(i).getName())){
@@ -86,7 +87,7 @@ public class BeerDatabase {
                 beerList.get(i).setYear(year);
                 beerList.get(i).setMaunfacturer(maunfacturer);
                 beerList.get(i).setCountry(country);
-                
+                beerList.get(i).setPath(path);
             }
         }
         try{

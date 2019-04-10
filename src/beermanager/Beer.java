@@ -8,8 +8,9 @@ public class Beer {
     private int year;
     private String maunfacturer;
     private String country;
+    private String path;
 
-    public Beer(String name, double alcoRate, double price, int rating, int year, String maunfacturer, String country) {
+    public Beer(String name, double alcoRate, double price, int rating, int year, String maunfacturer, String country, String path) {
         this.name = name;
         this.alcoRate = alcoRate;
         this.price = price;
@@ -17,6 +18,15 @@ public class Beer {
         this.year = year;
         this.maunfacturer = maunfacturer;
         this.country = country;
+        this.path = path;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getName() {
@@ -76,7 +86,7 @@ public class Beer {
     }
     
     public String toCSV(){
-        return getName()+","+getAlcoRate()+","+getPrice()+","+getRating()+","+getYear()+","+getMaunfacturer()+","+getCountry();
+        return getName()+","+getAlcoRate()+","+getPrice()+","+getRating()+","+getYear()+","+getMaunfacturer()+","+getCountry()+","+getPath();
     }
     
 }
