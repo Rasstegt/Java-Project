@@ -68,9 +68,9 @@ public class FXMLEditController implements Initializable {
     @FXML
     private void btnConfirmHandler(ActionEvent event) throws IOException {
         Alert alertConfEdit = new Alert(Alert.AlertType.CONFIRMATION);
-        alertConfEdit.setTitle("Delete Record");
-        alertConfEdit.setHeaderText("You are trying to delete a record");
-        alertConfEdit.setContentText("Are you sure you want to delete?");
+        alertConfEdit.setTitle("Edit Record");
+        alertConfEdit.setHeaderText("You are trying to edit a record");
+        alertConfEdit.setContentText("Are you sure you want to edit?");
         Optional<ButtonType>result=alertConfEdit.showAndWait();
         if (result.get() == ButtonType.OK){
             beerData.editFile(beer, 
@@ -80,7 +80,8 @@ public class FXMLEditController implements Initializable {
                 Integer.parseInt(tfRating.getText()), 
                 Integer.parseInt(tfYear.getText()) , 
                 tfMan.getText(), 
-                tfCountry.getText(), imageFile);
+                tfCountry.getText(), 
+                imageFile);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("MainInterface.fxml"));
             Parent root = (Parent)loader.load();
@@ -108,7 +109,8 @@ public class FXMLEditController implements Initializable {
         tfRating.setText(String.valueOf(beer.getRating()));
         tfArate.setText(String.valueOf(beer.getAlcoRate()));
         tfYear.setText(String.valueOf(beer.getYear()));
-        iv.setImage(new Image(beer.getPath()));
+        imageFile = beer.getPath();
+        iv.setImage(new Image(imageFile));        
     }
     
     public void setMain(MainInterfaceController main){
