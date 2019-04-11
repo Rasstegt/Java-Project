@@ -56,7 +56,7 @@ public class FXMLAddController implements Initializable {
     Parent mainInterface;
     BeerDatabase beerData = new BeerDatabase();
     ObservableList beerList;
-    private String imageFile;
+    private String imageFile = "/images/no.png";
     int rating, year;
     double alcoRate, price;
     Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -102,7 +102,7 @@ public class FXMLAddController implements Initializable {
         
         } catch(Exception e) {
             
-        alert.setTitle("Add Record");
+        alert.setTitle("Add a record");
         alert.setHeaderText("Be careful with values my drunk friend :)");
         alert.setContentText("Don't fill out database if you are drunk"
             + " (It's okay)");
@@ -138,7 +138,7 @@ public class FXMLAddController implements Initializable {
         fileChooser.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(imageTtl.getScene().getWindow());
-
+        
         if (selectedFile != null) {
             imageFile = selectedFile.toURI().toURL().toString();
             imageTtl.setText("");
@@ -146,9 +146,7 @@ public class FXMLAddController implements Initializable {
             iv.setImage(image);
         } else {
             imageTtl.setText("Image file selection cancelled.");
-            imageFile = "";
-            Image image = new Image(imageFile);
-            iv.setImage(image);
+            
         }
             
     }

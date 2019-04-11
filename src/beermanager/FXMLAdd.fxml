@@ -15,22 +15,22 @@
    <children>
       <ImageView fitHeight="500.0" fitWidth="889.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/164351422-guinness-wallpapers.jpg" />
+            <Image url="@../images/kkk.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblTitle" layoutX="184.0" layoutY="17.0" text="Add a New Beer Review" textFill="WHITE">
+      <Label fx:id="lblTitle" layoutX="310.0" layoutY="14.0" text="Add a New Beer Review" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="34.0" />
+            <Font name="Bernard MT Condensed" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="btnConfirm" layoutX="345.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnConfirmHandler" style="-fx-background-color: #008000;" text="Confirm" textFill="WHITE">
+      <Button fx:id="btnConfirm" layoutX="334.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnConfirmHandler" style="-fx-background-color: #008000; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
          <font>
-            <Font size="19.0" />
+            <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="lbtnCancel" layoutX="476.0" layoutY="406.0" mnemonicParsing="false" onAction="#btnCancelHandler" style="-fx-background-color: #dd0000;" text="Cancel" textFill="WHITE">
+      <Button fx:id="lbtnCancel" layoutX="478.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnCancelHandler" style="-fx-background-color: #dd0000; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
          <font>
-            <Font size="19.0" />
+            <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Button>
       <Label fx:id="lblError" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="338.0" prefHeight="27.0" prefWidth="434.0" textFill="RED">
@@ -38,11 +38,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <GridPane layoutX="52.0" layoutY="79.0" prefHeight="302.0" prefWidth="447.0">
+      <GridPane layoutX="52.0" layoutY="79.0" opacity="0.85" prefHeight="311.0" prefWidth="457.0" style="-fx-background-color: #000000; -fx-background-radius: 5;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.13037109375" minWidth="10.0" prefWidth="196.73209126790366" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.7825622558594" minWidth="10.0" prefWidth="220.7044372558594" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.65216064453125" minWidth="10.0" prefWidth="41.96222941080731" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.13037109375" minWidth="10.0" prefWidth="161.99996948242188" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.7825622558594" minWidth="10.0" prefWidth="212.66669718424475" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.65216064453125" minWidth="10.0" prefWidth="33.6666259765625" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -56,62 +56,62 @@
          <children>
             <Label text="Name" textFill="WHITE">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tfName" promptText="String" GridPane.columnIndex="1" />
             <Label text="Manufacturer" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <Label text="Country" textFill="WHITE" GridPane.rowIndex="2">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tfMan" promptText="String" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfCountry" promptText="String" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Year" textFill="WHITE" GridPane.rowIndex="3">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tfYear" promptText="Integer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Rating" textFill="WHITE" GridPane.rowIndex="4">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tfRating" promptText="Integer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Alcohol Rate" textFill="WHITE" GridPane.rowIndex="5">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <Label text="Price" textFill="WHITE" GridPane.rowIndex="6">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
             <TextField fx:id="tfArate" promptText="Double" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="tfPrice" promptText="Double" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="/5" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Bodoni MT" size="23.0" />
                </font>
             </Label>
          </children>
       </GridPane>
-      <AnchorPane layoutX="574.0" layoutY="81.0" prefHeight="291.0" prefWidth="269.0" style="-fx-background-color: ffffff;">
+      <AnchorPane layoutX="582.0" layoutY="97.0" prefHeight="265.0" prefWidth="237.0" style="-fx-background-color: ffffff; -fx-background-radius: 15;">
          <children>
             <ImageView fx:id="iv" fitHeight="171.0" fitWidth="186.0" layoutX="48.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnImage" layoutX="60.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnImageHandler" text="Choose an Image">
+            <Button fx:id="btnImage" layoutX="45.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnImageHandler" prefHeight="27.0" prefWidth="147.0" style="-fx-background-color: #000000;" text="Choose an Image" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Bodoni MT" size="16.0" />
                </font>
             </Button>
-            <Label fx:id="imageTtl" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="66.0" prefHeight="79.0" prefWidth="209.0" wrapText="true">
+            <Label fx:id="imageTtl" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="28.0" prefHeight="171.0" prefWidth="209.0" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font></Label>

@@ -186,19 +186,19 @@ public class MainInterfaceController implements Initializable {
     private void tbBeerHandler(MouseEvent event) {
         Beer beer = tbBeer.getSelectionModel().getSelectedItem();
         lblName.setText("Name: " + beer.getName());
-        lblARate.setText("Alcohol Rate: "+String.valueOf(beer.getAlcoRate()));
+        lblARate.setText("Alcohol Rate: "+String.valueOf(beer.getAlcoRate())+" %");
         lblRating.setText("Rating "+String.valueOf(beer.getRating())+"/5");
-        String price = String.valueOf(beer.getPrice());
-        if(price.length() < 4){
+        String price = String.valueOf(beer.getPrice()+" CAD");
+        if(price.length() < 4)
             lblPrice.setText("Price per Can: "+price+"0");
-        } else {
+         else 
             lblPrice.setText("Price per Can: "+price);
-        }
         
         lblYear.setText("Year: "+String.valueOf(beer.getYear()));
         lblMan.setText("Manufacturer: "+beer.getMaunfacturer());
         lblCountry.setText("Country: "+beer.getCountry());
         iv.setImage(new Image(beer.getPath()));
+        
     }
     
 }
