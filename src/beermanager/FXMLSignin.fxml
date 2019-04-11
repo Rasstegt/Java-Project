@@ -28,11 +28,11 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="btnConfirmCreate" disable="true" layoutX="390.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnConfirmCreateHandler" opacity="0.0" prefHeight="36.0" prefWidth="118.0" style="-fx-background-color: FFDA56;" text="Create Account">
+      <Button fx:id="btnConfirmCreate" disable="true" layoutX="403.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnConfirmCreateHandler" opacity="0.0" prefHeight="36.0" prefWidth="118.0" style="-fx-background-color: FFDA56;" text="Create Account">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TextField fx:id="tfUsername" alignment="CENTER" layoutX="337.0" layoutY="142.0" prefHeight="36.0" prefWidth="250.0" promptText="Username">
+      <TextField fx:id="tfUsername" alignment="CENTER" layoutX="337.0" layoutY="142.0" onAction="#btnLoginHandler" prefHeight="36.0" prefWidth="250.0" promptText="Username">
          <font>
             <Font size="14.0" />
          </font></TextField>

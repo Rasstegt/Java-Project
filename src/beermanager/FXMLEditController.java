@@ -46,19 +46,17 @@ public class FXMLEditController implements Initializable {
     private Button lbtnCancel;
     @FXML
     private Label lblError;
-    private String imageFile;
-
-    private MainInterfaceController main; 
-    
-    Beer beer;
-    
-    BeerDatabase beerData = new BeerDatabase();
     @FXML
     private ImageView iv;
     @FXML
     private Button btnImage;
     @FXML
     private Label imageTtl;
+    
+    private String imageFile;
+    private MainInterfaceController main; 
+    Beer beer;
+    BeerDatabase beerData = new BeerDatabase();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,12 +66,14 @@ public class FXMLEditController implements Initializable {
     @FXML
     private void btnConfirmHandler(ActionEvent event) throws IOException {
         Alert alertConfEdit = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alertConfEdit.setTitle("Edit Record");
         alertConfEdit.setHeaderText("You are trying to edit a record");
         alertConfEdit.setContentText("Are you sure you want to edit?");
         Optional<ButtonType>result=alertConfEdit.showAndWait();
         if (result.get() == ButtonType.OK){
-            beerData.editFile(beer, 
+            try {    
+                beerData.editFile(beer, 
                 tfName.getText(), 
                 Double.parseDouble(tfArate.getText()), 
                 Double.parseDouble(tfPrice.getText()), 
@@ -87,6 +87,25 @@ public class FXMLEditController implements Initializable {
             Parent root = (Parent)loader.load();
             Scene scene = ((Node)event.getSource()).getScene();
             scene.setRoot(root);
+            
+            } catch(Exception e) {
+                alert.setTitle("Edit Record");
+                alert.setHeaderText("Be careful with values my drunk friend :)");
+                alert.setContentText("Don't fill out database if you are drunk"
+            + " (Your mom may find out)");
+            Optional<ButtonType>answer=alert.showAndWait();
+            if(answer.get() == null){
+                try{
+                Parent root = FXMLLoader.load(getClass().getResource("MainInterface.fxml"));
+                    Scene scene = ((Node)event.getSource()).getScene();
+                    scene.setRoot(root);
+                } catch(IOException ex) {
+                    System.out.println("Error: " + e);
+                } 
+            
+        }
+    }
+            
         }
     }
 

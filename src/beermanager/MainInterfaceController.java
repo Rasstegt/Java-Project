@@ -54,16 +54,7 @@ public class MainInterfaceController implements Initializable {
     @FXML
     private Label lblMan;
     @FXML
-    private Label lblCountry;
-    
-    
-    Parent signin;
-    Parent add;
-    
-    private FXMLEditController edit;
-    
-    BeerDatabase beerData = new BeerDatabase();
-    
+    private Label lblCountry;    
     @FXML
     private TableColumn<Beer, String> tcName;
     @FXML
@@ -76,6 +67,11 @@ public class MainInterfaceController implements Initializable {
     private TableColumn<Beer, Double> tcPrice;
     @FXML
     private ImageView iv;
+    
+    Parent signin;
+    Parent add;
+    private FXMLEditController edit;
+    BeerDatabase beerData = new BeerDatabase();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
