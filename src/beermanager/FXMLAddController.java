@@ -61,14 +61,14 @@ public class FXMLAddController implements Initializable {
     double alcoRate, price;
     Alert alert = new Alert(Alert.AlertType.WARNING);
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
-    
-    public void addBeer(){
         
+    @FXML
+    private void btnConfirmHandler(ActionEvent event) throws IOException {
+        try {    
         price = Double.parseDouble(tfPrice.getText());
         alcoRate = Double.parseDouble(tfArate.getText());
         year = Integer.parseInt(tfYear.getText());
@@ -86,34 +86,36 @@ public class FXMLAddController implements Initializable {
         if(price < 0) price = 0;
 
         beerData.createBeer(new Beer(tfName.getText(),
-        Double.parseDouble(tfArate.getText()),
-        Double.parseDouble(tfPrice.getText()),
-        rating,
-        Integer.parseInt(tfYear.getText()),
-        tfMan.getText(),
-        tfCountry.getText(), 
-        imageFile));
-           
-    }
-    
-    @FXML
-    private void btnConfirmHandler(ActionEvent event) {
-        try {    
-        addBeer();
-        } catch(NumberFormatException e) {
+            Double.parseDouble(tfArate.getText()),
+            Double.parseDouble(tfPrice.getText()),
+            rating,
+            Integer.parseInt(tfYear.getText()),
+            tfMan.getText(),
+            tfCountry.getText(), 
+            imageFile));
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MainInterface.fxml"));
+        Parent root = (Parent)loader.load();
+        Scene scene = ((Node)event.getSource()).getScene();
+        scene.setRoot(root);
+        
+        } catch(Exception e) {
+            
         alert.setTitle("Add Record");
         alert.setHeaderText("Be careful with values my drunk friend :)");
         alert.setContentText("Don't fill out database if you are drunk"
             + " (It's okay)");
             Optional<ButtonType>result=alert.showAndWait();
+            
             if(result.get() == null){
                 try{
-                mainInterface = FXMLLoader.load(getClass().getResource("MainInterface.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("MainInterface.fxml"));
+                    Scene scene = ((Node)event.getSource()).getScene();
+                    scene.setRoot(root);
                 } catch(IOException ex) {
                     System.out.println("Error: " + e);
-                }    
-        Scene scene = ((Node)event.getSource()).getScene();
-        scene.setRoot(mainInterface);
+                } 
             }
         }
     }
@@ -139,12 +141,16 @@ public class FXMLAddController implements Initializable {
 
         if (selectedFile != null) {
             imageFile = selectedFile.toURI().toURL().toString();
+            imageTtl.setText("");
             Image image = new Image(imageFile);
             iv.setImage(image);
-            imageTtl.setText("");
         } else {
             imageTtl.setText("Image file selection cancelled.");
+            imageFile = "";
+            Image image = new Image(imageFile);
+            iv.setImage(image);
         }
+            
     }
     
 }

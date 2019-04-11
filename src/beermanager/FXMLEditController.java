@@ -73,7 +73,7 @@ public class FXMLEditController implements Initializable {
         Optional<ButtonType>result=alertConfEdit.showAndWait();
         if (result.get() == ButtonType.OK){
             try {    
-        beerData.editFile(beer, 
+                beerData.editFile(beer, 
                 tfName.getText(), 
                 Double.parseDouble(tfArate.getText()), 
                 Double.parseDouble(tfPrice.getText()), 
@@ -85,7 +85,6 @@ public class FXMLEditController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("MainInterface.fxml"));
             Parent root = (Parent)loader.load();
-            
             Scene scene = ((Node)event.getSource()).getScene();
             scene.setRoot(root);
             

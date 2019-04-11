@@ -68,7 +68,8 @@ public class MainInterfaceController implements Initializable {
     @FXML
     private ImageView iv;
     
-    Parent signin, add;
+    Parent signin;
+    Parent add;
     private FXMLEditController edit;
     BeerDatabase beerData = new BeerDatabase();
     
