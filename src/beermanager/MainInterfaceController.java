@@ -72,6 +72,7 @@ public class MainInterfaceController implements Initializable {
     Parent add;
     private FXMLEditController edit;
     BeerDatabase beerData = new BeerDatabase();
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -96,6 +97,7 @@ public class MainInterfaceController implements Initializable {
     
     @FXML
     private void btnEditHandler(ActionEvent event) throws IOException {
+        try {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("FXMLEdit.fxml"));
         Parent root = (Parent)loader.load();
@@ -104,6 +106,12 @@ public class MainInterfaceController implements Initializable {
         edit.setBeer(tbBeer.getSelectionModel().getSelectedItem());
         Scene scene = ((Node)event.getSource()).getScene();
         scene.setRoot(root);
+        } catch(Exception e) {
+        alert.setHeaderText("Choose a file");
+        alert.setContentText("What are you planning to edit?");
+        alert.showAndWait();
+        }
+        
         
     }
 
